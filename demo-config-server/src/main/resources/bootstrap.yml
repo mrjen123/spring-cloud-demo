@@ -1,0 +1,16 @@
+spring:
+  application:
+    name:config-server
+eureka:
+  instance:
+    preferIpAddress: true
+    instanceId: ${spring.cloud.client.ipAddress}:${server.port}
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:4003/eureka,http://localhost:4004/eureka
+      
+---
+spring:
+  profiles:server01
+server:
+  port: 4005
